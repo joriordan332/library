@@ -9,18 +9,21 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    
-    <div class="inputs-container">
-      <input type="text" id="title" placeholder="Title" />
-      <input type="text" id="author" placeholder="Author" />
-      <input type="number" id="pages" placeholder="How many pages?" />
+    <button id="newBook" onclick="openForm()">New Book</button>
+    <div class="inputs-container" id="myForm">
+      
+        <input type="text" id="title" placeholder="Title" />
+        <input type="text" id="author" placeholder="Author" />
+        <input type="number" id="pages" placeholder="How many pages?" />
 
-      <label for="pages_read">Have you read the book?</label>
-      <select name="pages_read" id="pages_read">
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-      <button id="addBook">Add Book</button>
+        <label for="pages_read">Have you read the book?</label>
+        <select name="pages_read" id="pages_read">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <button id="addBook">Add Book</button>
+        <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      
     </div>
   </body>
 </html>
