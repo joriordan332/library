@@ -5,6 +5,7 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
+  this.id = `${title}_${Date.now()}`
   // the constructor...
 }
 
@@ -18,16 +19,19 @@ function addBookToLibrary() {
   author = document.getElementById("author").value;
   pages = document.getElementById("pages").value;
   read = document.getElementById("pages_read").value;
+  
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook); 
 
   drawTable()
+
 }
 
 function drawTable() { 
   
 
   myLibrary.forEach((library) => {
+    
     console.log(library)
     //secondCells.removeChild(cellText);  array duplicating boks
     //tableHeaders.removeChild(headerText);
@@ -48,12 +52,26 @@ function drawTable() {
         const tableHeaders = document.createElement("th");
         const cellText = document.createTextNode(`${library.title} ${library.author} ${library.pages} ${library.read}`);
         const headerText = document.createTextNode(`${'title'} ${'author'} ${'pages'} ${'read'}`);
+        
         firstRow.appendChild(tableHeaders);
         tableHeaders.appendChild(headerText);
         secondCells.appendChild(cellText);
         secondRow.appendChild(secondCells);
         
-      
+
+        const readButton = document.createElement("button")
+        const readText = document.createTextNode("Change read status");
+        const deleteButton = document.createElement("button")
+        const deleteText = document.createTextNode("delete");
+        secondRow.appendChild(readButton);
+        readButton.appendChild(readText);
+        secondRow.appendChild(deleteButton);
+        deleteButton.appendChild(deleteText);
+        
+
+        let idData = document.createElement("td")
+        idData.textContent = `${Date.now()}`
+
   
       // add the row to the end of the table body
       tblHead.appendChild(firstRow);
@@ -63,6 +81,12 @@ function drawTable() {
       tbl.appendChild(tblHead);
       tbl.appendChild(tblBody);
       document.body.appendChild(tbl);
+
+      deleteButton.addEventListener("click", (book)=> {
+        if(book.id === Object.id){
+          tbl.remove()
+        }
+        })
   });
   myLibrary.length = 0;
 }
@@ -78,3 +102,4 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
