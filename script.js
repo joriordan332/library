@@ -1,4 +1,9 @@
-const myLibrary = [];
+const myLibrary = [{
+  title: "A Game of Thrones",
+  author: "George R. R. Martin",
+  pages: 694,
+  read: "Yes",
+}];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -36,7 +41,10 @@ function drawTable() {
     //secondCells.removeChild(cellText);  array duplicating boks
     //tableHeaders.removeChild(headerText);
     const tbl = document.createElement("table");
+
+
     const tblHead = document.createElement("thead");
+
     const tblBody = document.createElement("tbody");
 
     
@@ -49,20 +57,69 @@ function drawTable() {
         // node the contents of the <td>, and put the <td> at
         // the end of the table row
         const secondCells = document.createElement("td");
+        const secondCellsone = document.createElement("td");
+        const secondCellstwo = document.createElement("td");
+        const secondCellsthree = document.createElement("td");
+
+
         const tableHeaders = document.createElement("th");
-        const cellText = document.createTextNode(`${library.title} ${library.author} ${library.pages} ${library.read}`);
-        const headerText = document.createTextNode(`${'title'} ${'author'} ${'pages'} ${'read'}`);
+        const tableHeadersone = document.createElement("th");
+        const tableHeaderstwo = document.createElement("th");
+        const tableHeadersthree = document.createElement("th");
+
+
+
+
+        const cellText = document.createTextNode(library.title);
+        const authorText = document.createTextNode(library.author);
+        const pagesText = document.createTextNode(library.pages);
+        const textread = document.createTextNode(library.read);
+
+
+
+
+
+
+        const headerText = document.createTextNode('Title');
+        const headerTextone = document.createTextNode('Author');
+        const headerTexttwo = document.createTextNode('Pages');
+        const headerTextthree = document.createTextNode('Read');
+
         
         firstRow.appendChild(tableHeaders);
+        firstRow.appendChild(tableHeadersone);
+        firstRow.appendChild(tableHeaderstwo);
+        firstRow.appendChild(tableHeadersthree);
+
+
+
+
+
+
         tableHeaders.appendChild(headerText);
+        tableHeadersone.appendChild(headerTextone);
+        tableHeaderstwo.appendChild(headerTexttwo);
+        tableHeadersthree.appendChild(headerTextthree);
+
+
+
+
         secondCells.appendChild(cellText);
+        secondCellsone.appendChild(authorText);
+        secondCellstwo.appendChild(pagesText);
+        secondCellsthree.appendChild(textread);
+
+
         secondRow.appendChild(secondCells);
+        secondRow.appendChild(secondCellsone);
+        secondRow.appendChild(secondCellstwo);
+        secondRow.appendChild(secondCellsthree);
         
 
         const readButton = document.createElement("button")
         const readText = document.createTextNode("Change read status");
         const deleteButton = document.createElement("button")
-        const deleteText = document.createTextNode("delete");
+        const deleteText = document.createTextNode("Delete");
         secondRow.appendChild(readButton);
         readButton.appendChild(readText);
         secondRow.appendChild(deleteButton);
@@ -86,7 +143,17 @@ function drawTable() {
         if(book.id === Object.id){
           tbl.remove()
         }
-        })
+        });
+
+        readButton.addEventListener("click", () => {
+          if (textread.textContent == 'Yes') {
+            textread.textContent = 'No'
+          }
+          else if (textread.textContent == 'No') {
+            textread.textContent = 'Yes'
+          }
+        });
+        
   });
   myLibrary.length = 0;
 }
@@ -103,3 +170,4 @@ function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
 
+drawTable()
