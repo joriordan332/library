@@ -60,6 +60,8 @@ function drawTable() {
         const secondCellsone = document.createElement("td");
         const secondCellstwo = document.createElement("td");
         const secondCellsthree = document.createElement("td");
+        const secondCellsfour = document.createElement("td");
+        const secondCellsfive = document.createElement("td");
 
 
         const tableHeaders = document.createElement("th");
@@ -114,15 +116,17 @@ function drawTable() {
         secondRow.appendChild(secondCellsone);
         secondRow.appendChild(secondCellstwo);
         secondRow.appendChild(secondCellsthree);
+        secondRow.appendChild(secondCellsfour);
+        secondRow.appendChild(secondCellsfive);
         
 
         const readButton = document.createElement("button")
         const readText = document.createTextNode("Change read status");
         const deleteButton = document.createElement("button")
         const deleteText = document.createTextNode("Delete");
-        secondRow.appendChild(readButton);
+        secondCellsfour.appendChild(readButton);
         readButton.appendChild(readText);
-        secondRow.appendChild(deleteButton);
+        secondCellsfive.appendChild(deleteButton);
         deleteButton.appendChild(deleteText);
         
 
@@ -138,7 +142,7 @@ function drawTable() {
       tbl.appendChild(tblHead);
       tbl.appendChild(tblBody);
       document.body.appendChild(tbl);
-
+                                      
       deleteButton.addEventListener("click", (book)=> {
         if(book.id === Object.id){
           tbl.remove()

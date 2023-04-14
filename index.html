@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  <H1>Your Virtual Library</H1>
+  
   <body>
-    <button id="newBook" onclick="openForm()">New Book</button>
-    <div class="inputs-container" id="myForm">
+    <div class="main-container">
+      <H1 class="heading">Your Virtual Library</H1>
+      <button id="newBook" onclick="openForm()">New Book</button>
+      <div class="inputs-container" id="myForm">
       
         <input type="text" id="title" placeholder="Title" />
         <input type="text" id="author" placeholder="Author" />
@@ -24,6 +26,8 @@
         </select>
         <button id="addBook">Add Book</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-    </div>
+      </div>
+     
+    </div> 
   </body>
 </html>
