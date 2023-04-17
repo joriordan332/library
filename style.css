@@ -1,10 +1,10 @@
 #myForm {
-    display: none;
-  }
+  display: none;
+}
 
- .heading {
-    font-size: 40px;
-  }
+.heading {
+  font-size: 40px;
+}
 
 body {
   font-size: 20px;
@@ -52,6 +52,4 @@ tbody {
   color: #424242;
 }
 
-button {
- 
-}
+

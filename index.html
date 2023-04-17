@@ -8,26 +8,25 @@
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
-  
+
   <body>
     <div class="main-container">
       <H1 class="heading">Your Virtual Library</H1>
       <button id="newBook" onclick="openForm()">New Book</button>
+      <p id="prompt"></p>
       <div class="inputs-container" id="myForm">
-      
         <input type="text" id="title" placeholder="Title" />
         <input type="text" id="author" placeholder="Author" />
         <input type="number" id="pages" placeholder="How many pages?" />
 
-        <label for="pages_read">Have you read the book?</label>
-        <select name="pages_read" id="pages_read">
+        <label for="book">Have you read the book?</label>
+        <select name="book_read" id="book_read">
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
-        <button id="addBook">Add Book</button>
+        <button type="submit" id="addBook">Add Book</button>
         <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
       </div>
-     
     </div> 
   </body>
 </html>
