@@ -6,19 +6,31 @@ const myLibrary = [{
   read: 'Yes',
 }];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.id = `${title}_${Date.now()}`;
+class Book {
+  constructor(title, author, pages, read, id) {
+      this.title = title
+      this.author = author;
+      this.pages = pages;
+      this.read = read;
+      this.id = `${title}_${Date.now()}`;
+      }
+  
 }
 
+
 function addBookToLibrary() {
+  let text;
+  if (document.getElementById('pages').validity.rangeOverflow) {
+    text = 'Too many pages';
+    document.getElementById("demo").innerHTML = text;
+  }
+  
   if (title.value === '' || author.value === '' || pages.value === '') {
     promptText.textContent = 'Please fill out all of the book details';
     return false;
   }
+   
+  
   if (title.value !== '' && author.value !== '' && pages.value !== '') {
     title = document.getElementById('title').value;
     author = document.getElementById('author').value;
@@ -28,6 +40,7 @@ function addBookToLibrary() {
     const newBook = new Book(title, author, pages, read);
     myLibrary.push(newBook);
   }
+  
   drawTable();
 }
 
@@ -142,3 +155,4 @@ function closeForm() {
 }
 
 drawTable();
+
